@@ -1,0 +1,9 @@
+.bg-image{
+    background-image: url(/images/Group-279-b.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+
+}

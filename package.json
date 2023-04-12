@@ -1,0 +1,62 @@
+{
+  "name": "handicrafts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
+    "@stripe/react-stripe-js": "^1.8.1",
+    "@stripe/stripe-js": "^1.32.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase": "^9.8.1",
+    "react": "^17.0.2",
+    "react-currency-input-field": "^3.6.4",
+    "react-dom": "^17.0.2",
+    "react-modal": "^3.14.3",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "^5.0.0",
+    "react-toastify": "^9.0.5",
+    "redux-persist": "^6.0.0",
+    "stripe": "^9.8.0",
+    "twilio": "^3.77.3",
+    "twilio-client": "^1.14.0",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "netlify-cli": "^10.10.0",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
+  },
+  "proxy": "http://localhost:5000"
+}
