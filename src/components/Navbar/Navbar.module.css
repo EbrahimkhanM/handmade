@@ -4,8 +4,11 @@
   align-content: center;
   left: 0;
   right: 0;
-  margin: 20px 0;
-  padding: 0 3%;
+  /* margin: 20px 0; */
+  margin: 5px auto;
+  /* padding: 0 3%; */
+  padding: 0 1%;
+  max-width: 1500px;
 }
 
 i {
@@ -36,4 +39,8 @@ i:hover {
   right: -16%;
   top: -17%;
   z-index: -5;
+}
+.nav__Links{
+  display: flex;
+  
 }

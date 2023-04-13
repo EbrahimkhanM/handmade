@@ -39,7 +39,7 @@ const Menu = (props) => {
         <button className={styles["close-menu"]} onClick={closeMenuHandler}>
           <i class="ri-close-line"></i>
         </button>
-        <ul>
+        <ul className={styles["dropdown_links"]}>
           {/* <li>
             <a href="#">About Us</a>
           </li>

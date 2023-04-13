@@ -19,12 +19,41 @@ const Navbar = (props) => {
     dispatch(uiActions.toggleMenu());
   };
 
+
+  const signOutHandler = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        dispatch(authActions.logOut());
+        window.alert("SignOut Successfully");
+        window.location.href = "./home";
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  }
   return (
     <nav className={styles.nav}>
-      <Navlink onClick={toggleMenuHandler}>
+      {/* <Navlink onClick={toggleMenuHandler}>
         <i class="ri-function-line"></i>
-      </Navlink>
+      </Navlink> */}
       <Logo />
+      <div className={styles["nav__Links  "]}>
+        <ul className={styles["nav__Links"]}>
+          <li>
+            <a href="./sell">How To Sell</a>
+          </li>
+          <li>
+            <a href="./blog">Blogs</a>
+          </li>
+          <li>
+            <a href="/log-in">Login</a>
+          </li>
+        </ul>
+        <button onClick={signOutHandler} className={styles.logout}>
+          <i class="ri-logout-box-line"></i> logout
+        </button>
+      </div>
       <Navlink onClick={toggleCartHandler}>
         <div className={styles["nav__btn-wrapper"]}>
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
