@@ -118,7 +118,7 @@ useEffect(()=>{
                   User Name
                 </label>
                 <input
-                  className="w-full  text-sm font-medium focus:outline-none bg-gray-300 leading-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full  text-sm font-medium focus:outline-none bg-gray-300 leading-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="text"
                   tabIndex={0}
                   value={formData.userName}
@@ -134,7 +134,7 @@ useEffect(()=>{
               <div className="flex flex-col w-full ">
                 <label className="mb-3 text-sm leading-none text-black">Email Address</label>
                 <input
-                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="email"
                   value={formData.email}
                   onChange={(e) => {
@@ -150,7 +150,7 @@ useEffect(()=>{
                   Product Name
                 </label>
                 <select
-                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#8c0327]"
+                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#a95414]"
                   type="text"
                   value={formData.productName}
                   defaultValue={formData.productName}
@@ -170,7 +170,7 @@ useEffect(()=>{
               <div className="flex flex-col w-full mt-2 ">
                 <label className="mb-3 text-sm leading-none text-black">Phone Number</label>
                 <input
-                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="phone"
                   value={formData.phone}
                   onChange={(e) => {
@@ -204,7 +204,7 @@ useEffect(()=>{
                   Size
                 </label>
                 <select
-                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#8c0327]"
+                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#a95414]"
                   type="text"
                   value={formData.size}
                   onChange={(e) => {
@@ -278,7 +278,7 @@ useEffect(()=>{
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-[#8c0327] focus:outline-none
+        focus:text-gray-700 focus:bg-white focus:border-[#a95414] focus:outline-none
       "
                   id="exampleFormControlTextarea1"
                   rows="3"
@@ -293,7 +293,7 @@ useEffect(()=>{
 
             <button
               type="submit"
-              className="flex w-full items-center text-xl text-white justify-center md:py-3 bg-[#8c0327] py-2 md:px-12 px-8   mt-4 md:mt-6 rounded"
+              className="flex w-full items-center text-xl text-white justify-center md:py-3 bg-[#a95414] py-2 md:px-12 px-8   mt-4 md:mt-6 rounded"
             >
               Post
             </button>

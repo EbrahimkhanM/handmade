@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Menu.module.css";
 import Backdrop from "../UI/Backdrop";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +10,17 @@ import { authActions } from "../../store/authSlice";
 const Menu = (props) => {
   const dispatch = useDispatch();
   const menuIsActive = useSelector((state) => state.ui.menuIsVisible);
+  useEffect(() => {
+    if (menuIsActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuIsActive]);
 
   const closeMenuHandler = () => {
     dispatch(uiActions.toggleMenu());

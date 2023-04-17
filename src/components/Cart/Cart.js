@@ -1,4 +1,5 @@
 import styles from "./Cart.module.css";
+import React, {useEffect} from "react"
 import Backdrop from "../UI/Backdrop";
 import CartItems from "./CartItems";
 import { Link } from "react-router-dom";
@@ -14,6 +15,18 @@ const Cart = () => {
   const closeCartHandler = () => {
     dispatch(uiActions.toggleCart());
   };
+  
+  useEffect(() => {
+    if (cartIsActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [cartIsActive]);
 
   return (
     <>

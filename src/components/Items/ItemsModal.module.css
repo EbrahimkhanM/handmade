@@ -40,19 +40,19 @@
   width: 300px;
   margin: 10px 0;
   padding: 20px 0;
-  border: 2px solid #8c0327;
+  border: 2px solid #a95414;
   cursor: pointer;
 }
 
 .add-btn {
-  background-color: #8c0327;
+  background-color: #a95414;
   color: white;
   text-transform: uppercase;
 }
 
 .close-modal-btn {
   background-color: #fff;
-  color: #8c0327;
+  color: #a95414;
   font-weight: bold;
   text-transform: uppercase;
 }

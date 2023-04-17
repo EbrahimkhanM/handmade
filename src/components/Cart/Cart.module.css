@@ -77,26 +77,26 @@
 }
 
 .summary__to_checkout_btn {
-  background-color: #8c0327;
+  background-color: #a95414;
   color: white;
   text-transform: uppercase;
   width: 280px;
   margin-bottom: 15px;
   padding: 15px 0;
-  border: 2px solid #8c0327;
+  border: 2px solid #a95414;
   cursor: pointer;
 }
 
 .summary__continue_btn {
   background-color: #f7f7f7;
-  color: #8c0327;
+  color: #a95414;
   font-weight: bold;
   font-size: 0.8rem;
   text-transform: uppercase;
   width: 280px;
   margin-bottom: 30px;
   padding: 15px 0;
-  border: 2px solid #8c0327;
+  border: 2px solid #a95414;
   cursor: pointer;
 }
 

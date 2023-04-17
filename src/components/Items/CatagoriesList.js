@@ -186,56 +186,56 @@ const CatagoriesList = () => {
                 onClick={() => setStatus(0)}
                 className={
                   status == 0
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">Ajrak</span>
-                {status == 0 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 0 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(1)}
                 className={
                   status == 1
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">Jewellery</span>
-                {status == 1 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 1 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(2)}
                 className={
                   status == 2
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">T-Shirts</span>
-                {status == 2 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 2 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(3)}
                 className={
                   status == 3
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">Hoodies</span>
-                {status == 3 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 3 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(4)}
                 className={
                   status == 4
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">Groom Dresses</span>
-                {status == 4 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 4 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               
             </ul>
