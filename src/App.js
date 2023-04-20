@@ -16,6 +16,8 @@ import Sell from "./pages/sell";
 import Blog from "./pages/blog";
 import Payment from "./pages/payment";
 import axios from "axios";
+import ContactUs from "./pages/contact-us";
+import About from "./pages/about";
 
 const Checkout = React.lazy(() => import("./pages/checkout"));
 const NotFound = React.lazy(() => import("./pages/notFound"));
@@ -56,6 +58,8 @@ function App() {
           <Route path="/sell" element={<Sell />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/about" element={<About/>} />
         </Routes>
       </Suspense>
     </>

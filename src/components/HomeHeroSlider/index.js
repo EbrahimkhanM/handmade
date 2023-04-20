@@ -69,10 +69,10 @@ const HomeHeroSlider = () => {
       <Slider {...settings}>
         {myData?.map((item, idx) => {
           return (
-            <div key={idx} >   
+            <div key={idx}>
               <div className="bg-center bg-cover bg-no-repeat py-20 mb-10  w-full relative " style={{ backgroundImage: `url(${item?.image})` }}>
                 <div className="absolute top-0 bottom-0 right-0 left-0 bg-gray-900 bg-opacity-60 "></div>
-                <div className="flex flex-col justify-center items-center relative z-1 ">
+                <div className={`flex flex-col justify-center items-center ${'/home' ? 'relative z-1' : ''} `}>
                   <div className="first-letter: ">
                     <p className="md:text-5xl lg:text-6xl tracking-[3px] text-4xl text-white font-semibold">{item.title}</p>
                     <p className="md:text-3xl text-white tracking-[10px] text-2xl leading-7 mt-2 text-center font-normal">{item.tagline}</p>

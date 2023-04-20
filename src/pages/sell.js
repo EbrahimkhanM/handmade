@@ -10,7 +10,7 @@ function sell() {
   return (
     <Layout>
       <div>
-        <SellHeader header="Hello Share To Wear fam !" para="You are one step closer to having your own virtual wardrobe!" />
+        <SellHeader header="Hello Handicrafts fam !" para="You are one step closer to having your own virtual wardrobe!" />
 
         <Sell
           steps="Step 1"

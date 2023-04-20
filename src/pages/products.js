@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import styles from "./Home.module.css";
 import Layout from '../components/Layout'
 
-const Home = () => {
+const Products = () => {
 
   return (
     <>
@@ -31,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Products;

@@ -46,7 +46,7 @@ const LogInForm = () => {
         className="h-full   bg-center bg-no-repeat bg-cover fixed top-0 bottom-0 w-full py-12 px-4  "
       ></div>
       <div className="w-full container mx-auto inset-0 absolute z-100 flex py-8 justify-center">
-        <div className="  px-6 lg:px-0 w-full lg:w-2/3">
+        <div className="  px-6 lg:px-0 w-full lg:w-3/4">
           <div className="bg-white shadow-2xl rounded  backdrop-blur-lg bg-white/60  w-full py-8 mt-12">
             <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-2xl text-center font-extrabold leading-6 text-[#a95414]">
               Login to your account

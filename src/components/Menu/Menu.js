@@ -64,6 +64,9 @@ const Menu = (props) => {
             <a href="./blog">Blogs</a>
           </li>
           <li>
+            <a href="./contact-us">Contact Us</a>
+          </li>
+          <li>
             <a href="/log-in">Login</a>
           </li>
         </ul>

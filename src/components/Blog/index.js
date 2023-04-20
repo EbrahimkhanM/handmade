@@ -5,21 +5,21 @@ function index() {
     {
       id: "1",
       img: "/images/pexels.jpg",
-      heading: "Get the perfect look",
-      para: "Constantly hustling day in day out and still putting a smile on your face is what makes you a Queen. But even the queen needs",
+      heading: "ETHICAL FASHION! ",
+      para: "What is ethical fashion? There are a lot of ways of explaining what’s ethical about fashion. At Handicrafts Collection, our products are handmade by women in Kenya using locally sourced natural fibers, beads and leather.",
      
     },
     {
       id: "2",
       img: "/images/artisan.jpg",
-      heading: "Gift your dad by showing him how you BizB'ed your wardrobe",
-      para: "A messy wardrobe is every parent's nightmare, especially if it belongs to their children. As unfair as it may sound, it simply is what it",
+      heading: "HORN CARVING ACCESSORIES",
+      para: "Horn carving is an ancient form of art and communication in African cultures.We have partnered with a group in Nairobi, Kenya that has continued the art form.",
     },
     {
       id: "3",
       img: "/images/potter.jpg",
-      heading: "Second-hand Buying - A Global Trend",
-      para: "As the global economic recession continues, the consumption of second-hand clothing has received considerable attention among consumers across the globe. This has resulted in the",
+      heading: "HANDCRAFTED SISAL BEACH KIONDO BAGS",
+      para: "Handicrafts market and/or beach bags are handmade by artisan women in Kenya in an ancient weaving technique. ",
      
     },
     {

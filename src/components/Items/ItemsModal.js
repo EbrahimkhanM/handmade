@@ -7,32 +7,31 @@ import { uiActions } from "../../store/uiSlice";
 import { cartActions } from "../../store/cartSlice";
 
 const ItemsModal = (props) => {
- 
   const dispatch = useDispatch();
   const [wrongSize, setWrongSize] = useState(false);
-  const sizeRef = useRef();
-  const itemsInCart = useSelector((state) => state.cart.items);
+  // const sizeRef = useRef();
+  // const itemsInCart = useSelector((state) => state.cart.items);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const enteredSize = sizeRef.current.value;
+    // const enteredSize = sizeRef.current.value;
 
-    if (enteredSize === "select") {
-      setWrongSize(true);
-      return;
-    } else {
-      setWrongSize(false);
-    }
+    // if (enteredSize === "select") {
+    //   setWrongSize(true);
+    //   return;
+    // } else {
+    //   setWrongSize(false);
+    // }
 
     dispatch(
       cartActions.addItemToCart({
         id: props.item.id,
         name: props.item.name,
         img: props.item.img,
-        size: enteredSize,
+        // size: enteredSize,
         price: props.item.price,
-        userName: props.item.userName
+        userName: props.item.userName,
       })
     );
 
@@ -46,32 +45,33 @@ const ItemsModal = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.item}>
-        <div className={styles.image}>
-          <img src={props.item.img} alt="" />
-        </div>
-        <h3 className="item-name">{props.item.name}</h3>
-        <p>pkr:{props.item.price}</p>
-        <p>{props.item.userName}</p>
+        <h3 className="item-name text-[24px] font-[600]">{props.item.name}</h3>
+        <p className="text-[#4b5563] text-[18px]">{props.item.description}</p>
+        <p className="text-[#a95414]">pkr:{props.item.price}</p>
+        <p className="font-[600]">{props.item.userName}</p>
+        <form className={styles["item-modal-form"]} onSubmit={submitHandler}>
+          {/* <SizePicker
+            labelFor="size"
+            labelText="Choose a size"
+            availableSize={props.item.availableSize}
+            ref={sizeRef}
+            wrongSize={wrongSize}
+            wrongSizeStyles={styles.wrong_size_info}
+            selectStyles={styles.size_picker__select}
+          /> */}
+          <button className={styles["add-btn"]}>Add to cart</button>
+          <button
+            className={styles["close-modal-btn"]}
+            onClick={closeModalHandler}
+          >
+            Close
+          </button>
+        </form>
+        <Backdrop />
       </div>
-      <form className={styles["item-modal-form"]} onSubmit={submitHandler}>
-        <SizePicker
-          labelFor="size"
-          labelText="Choose a size"
-          availableSize={props.item.availableSize}
-          ref={sizeRef}
-          wrongSize={wrongSize}
-          wrongSizeStyles={styles.wrong_size_info}
-          selectStyles={styles.size_picker__select}
-        />
-        <button className={styles["add-btn"]}>Add to cart</button>
-        <button
-          className={styles["close-modal-btn"]}
-          onClick={closeModalHandler}
-        >
-          Close
-        </button>
-      </form>
-      <Backdrop />
+      <div className="w-[48%] h-[350px]">
+        <img className="w-full h-full object-cover rounded-[10px]" src={props.item.img} alt="" />
+      </div>
     </div>
   );
 };
