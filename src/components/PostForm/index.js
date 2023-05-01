@@ -42,7 +42,6 @@ const PostForm = () => {
 
     return errors;
   };
-  3;
   const types = ["image/png", "image/jpeg"];
 
   const handleImg = (e) => {
