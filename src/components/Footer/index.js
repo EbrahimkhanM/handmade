@@ -19,6 +19,7 @@ const Footer = () => {
         // An error happened.
       });
   };
+  
   return (
     <>
       <div className="">
