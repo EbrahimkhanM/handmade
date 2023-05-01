@@ -10,7 +10,7 @@ const Item = (props) => {
         </div>
         <div className="w-full px-2">
           <p className="text-[#333333] text-base text-left leading-[22px] font-medium mt-2">{props.description}</p>
-          <h3 className="text-[#8c0327] text-left text-base w-full mt-2">{props.name}</h3>
+          <h3 className="text-[#a95414] text-left text-base w-full mt-2">{props.name}</h3>
           <p className="text-gray-800 text-sm text-left font-semibold mt-2">{props.price} pkr</p>
         </div>
       </li>

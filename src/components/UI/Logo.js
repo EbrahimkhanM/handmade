@@ -6,9 +6,8 @@ const Logo = () => {
   return (
     <div className={styles.logo}>
       <Link to="/home">
-        {/* <span>SHARE TO WEAR</span> */}
-        <div className="max-w-[180px] ">
-          <img src="/images/Handmade_Products_logo.jpg" className="max-h-[100px]" />
+        <div className="max-w-[150px] ">
+          <img src="/images/Handmade_Products_logo.jpg" className="max-h-[85px]" />
         </div>
       </Link>
     </div>

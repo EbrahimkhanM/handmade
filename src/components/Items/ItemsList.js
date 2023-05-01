@@ -16,9 +16,19 @@ const ItemsList = () => {
 
   const dispatch = useDispatch();
   const data = useSelector((state) => state);
-console.log("items<>",items);
   const modalIsActive = useSelector((state) => state.ui.modalIsVisible);
   // const isLoading = useSelector((state) => state.ui.isLoading);
+  useEffect(() => {
+    if (modalIsActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [modalIsActive]);
   useEffect(() => {
     
     const getData = async () => {

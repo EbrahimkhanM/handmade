@@ -15,9 +15,9 @@ const CheckoutItems = () => {
       </div>
       <div className={styles["checkout_item__detail-container"]}>
         <p className={styles.checkout_item__detail}>{item.name}</p>
-        <p className={styles.checkout_item__detail}>
+        {/* <p className={styles.checkout_item__detail}>
           size: {item.enteredSize.toUpperCase()}
-        </p>
+        </p> */}
         <p>{item.userName}</p>
         <p className={styles.checkout_item__detail}>Pkr{item.price}</p>
       </div>

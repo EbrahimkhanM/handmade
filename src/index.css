@@ -7,7 +7,7 @@
   box-sizing: border-box;
   font-family: "Arvo", sans-serif;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @font-face {
   font-family: "Arvo";
   src: local("Arvo"), url(./fonts/Arvo/Arvo-Regular.ttf) format("truetype");
@@ -18,7 +18,9 @@
   src: local("Titillium Web"),
     url(./fonts/Titillium_Web/TitilliumWeb-Regular.ttf) format("truetype");
 }
-
+.Roboto{
+  font-family: 'Roboto', sans-serif;
+}
 ::selection {
   background-color: blue;
 }

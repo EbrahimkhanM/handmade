@@ -67,7 +67,7 @@ const Register = () => {
       ></div>
       <div className="w-full container mx-auto inset-0 absolute z-100 flex py-8 justify-center   ">
         <form
-          className="lg:w-3/5  md:w-1/2 w-full bg-white backdrop-blur-lg bg-white/60 rounded-xl absolute z-100 "
+          className="lg:w-3/4  md:w-1/2 w-full bg-white backdrop-blur-lg bg-white/60 rounded-xl absolute z-100 "
           onSubmit={handleSubmit}
         >
           <div className="w-full  p-8 md:p-6 lg:p-10">
@@ -77,7 +77,7 @@ const Register = () => {
                   Full Name
                 </label>
                 <input
-                  className="w-full  text-sm font-medium focus:outline-none bg-gray-300 leading-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full  text-sm font-medium focus:outline-none bg-gray-300 leading-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="text"
                   tabIndex={0}
                   value={formData.name}
@@ -93,7 +93,7 @@ const Register = () => {
                   User Name
                 </label>
                 <input
-                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#8c0327]"
+                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#a95414]"
                   type="text"
                   value={formData.username}
                   onChange={(e) => {
@@ -111,7 +111,7 @@ const Register = () => {
                   Email Address
                 </label>
                 <input
-                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="email"
                   value={formData.email}
                   onChange={(e) => {
@@ -127,7 +127,7 @@ const Register = () => {
                   Password
                 </label>
                 <input
-                  className="w-full bg-gray-300 text-sm font-medium leading-none text-gray-900 p-3 focus:outline-none border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full bg-gray-300 text-sm font-medium leading-none text-gray-900 p-3 focus:outline-none border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="password"
                   value={formData.pass}
                   onChange={(e) => {
@@ -143,7 +143,7 @@ const Register = () => {
             <button
               type="submit"
               // role="button"
-              className="flex items-center text-xl text-white justify-center md:py-3 bg-[#8c0327] py-2 md:px-12 px-8 focus:outline-none border rounded  mt-7 md:mt-14   focus:ring-2 focus:ring-offset-2 focus:ring-[#8c0327]"
+              className="flex items-center text-xl text-white justify-center md:py-3 bg-[#a95414] py-2 md:px-12 px-8 focus:outline-none border rounded  mt-7 md:mt-14   focus:ring-2 focus:ring-offset-2 focus:ring-[#a95414]"
             >
               SignUp
             </button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Menu.module.css";
 import Backdrop from "../UI/Backdrop";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +10,17 @@ import { authActions } from "../../store/authSlice";
 const Menu = (props) => {
   const dispatch = useDispatch();
   const menuIsActive = useSelector((state) => state.ui.menuIsVisible);
+  useEffect(() => {
+    if (menuIsActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuIsActive]);
 
   const closeMenuHandler = () => {
     dispatch(uiActions.toggleMenu());
@@ -39,7 +50,7 @@ const Menu = (props) => {
         <button className={styles["close-menu"]} onClick={closeMenuHandler}>
           <i class="ri-close-line"></i>
         </button>
-        <ul>
+        <ul className={styles["dropdown_links"]}>
           {/* <li>
             <a href="#">About Us</a>
           </li>
@@ -51,6 +62,9 @@ const Menu = (props) => {
           </li>
           <li>
             <a href="./blog">Blogs</a>
+          </li>
+          <li>
+            <a href="./contact-us">Contact Us</a>
           </li>
           <li>
             <a href="/log-in">Login</a>

@@ -22,7 +22,7 @@ const CartItems = (props) => {
       </div>
       <div className={styles["cart_item__detail-container"]}>
         <p className={styles.cart_item__detail}>{name}</p>
-        <p className={styles.cart_item__detail}>size: {size.toUpperCase()}</p>
+        {/* <p className={styles.cart_item__detail}>size: {size.toUpperCase()}</p> */}
         <p className={styles.cart_item__detail}>pkr:{price}</p>
         <p>{userName}</p>
         <div className={styles.actions}>

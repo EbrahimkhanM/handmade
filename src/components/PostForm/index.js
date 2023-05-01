@@ -4,8 +4,8 @@ import { db, storage, storageRef } from "../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { v4 } from "uuid";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CurrencyInput from "react-currency-input-field";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -17,13 +17,12 @@ const PostForm = () => {
   const [formError, setFromError] = useState({});
   const navigate = useNavigate();
 
-
-
   const validate = (values) => {
     const errors = {};
     const nameRegex = /^[a-zA-Z ]+$/;
     const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    const phoneRegex = /^[\+]?[(]?[0-9]{4}[)]?[-\s\.]?[0-9]{4}[-\s\.]?[0-9]{3,6}$/;
+    const phoneRegex =
+      /^[\+]?[(]?[0-9]{4}[)]?[-\s\.]?[0-9]{4}[-\s\.]?[0-9]{3,6}$/;
 
     if (!values.userName) {
       errors.userName = "This field is required";
@@ -42,7 +41,8 @@ const PostForm = () => {
     }
 
     return errors;
-  }; 3
+  };
+  3;
   const types = ["image/png", "image/jpeg"];
 
   const handleImg = (e) => {
@@ -55,7 +55,7 @@ const PostForm = () => {
       setError("please select a valid image type");
     }
   };
-  console.log("formData>>>", formData)
+  console.log("formData>>>", formData);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFromError(validate(formData));
@@ -69,24 +69,24 @@ const PostForm = () => {
             img: url,
             price: formData.price,
             name: formData.productName,
-            availableSize: formData.size,
+            // availableSize: formData.size,
             description: formData.description,
             userEmail: formData.email,
             userName: formData.userName,
-            phoneNumber: formData.phone
+            phoneNumber: formData.phone,
           })
             .then((res) => {
               toast.success("Post submitted");
               setFormData({
                 price: "",
                 productName: "",
-                size: "",
+                // size: "",
                 email: "",
                 userName: "",
-                phone: ""
-              })
+                phone: "",
+              });
               setTimeout(() => {
-                navigate('/home')
+                navigate("/home");
               }, 3000);
             })
             .catch((err) => {
@@ -98,17 +98,15 @@ const PostForm = () => {
     });
   };
 
-useEffect(()=>{
-  
+  useEffect(() => {
     setFormData({ ...formData, productName: "Ajrak" });
-  
-},[])
+  }, []);
   return (
     <>
       <ToastContainer />
       <div className="w-full container mx-auto  flex  justify-center   ">
         <form
-          className="lg:w-3/5  md:w-1/2 w-full bg-white backdrop-blur-lg  rounded-xl  "
+          className="lg:w-4/6  md:w-1/2 w-full bg-[#F9FAFB] backdrop-blur-lg  border-gray-300 border shadow-md rounded-xl  "
           onSubmit={handleSubmit}
         >
           <div className="w-full  p-8 md:p-6 lg:p-10">
@@ -118,7 +116,7 @@ useEffect(()=>{
                   User Name
                 </label>
                 <input
-                  className="w-full  text-sm font-medium focus:outline-none bg-gray-300 leading-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full  text-sm font-medium focus:outline-none bg-gray-300 leading-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="text"
                   tabIndex={0}
                   value={formData.userName}
@@ -131,46 +129,75 @@ useEffect(()=>{
                   {formError.userName}
                 </p>
               </div>
+              <div className="grid sm:grid-cols-2 w-full gap-x-[30px]">
+                <div className="flex flex-col ">
+                  <label className="mb-3 text-sm leading-none text-black">
+                    Email Address
+                  </label>
+                  <input
+                    className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                    }}
+                    tabIndex={0}
+                    aria-label="Enter email Address"
+                  />
+                  <p className="text-xs text-right w-full font-bold text-red-600 mt-1">
+                    {formError.email}
+                  </p>
+                </div>
+                <div className="flex flex-col  mt-2 sm:mt-0 ">
+                  <label className="mb-3 text-sm leading-none text-black">
+                    Product Name
+                  </label>
+                  <select
+                    className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-[11px] border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#a95414]"
+                    type="text"
+                    value={formData.productName}
+                    defaultValue={formData.productName}
+                    onChange={(e) => {
+                      setFormData({ ...formData, productName: e.target.value });
+                    }}
+                    tabIndex={0}
+                    aria-label="Enter last name"
+                  >
+                    <option className="font-medium text-base">Ajrak</option>
+                    <option className="font-medium text-base">Jewellery</option>
+                    <option className="font-medium text-base">Carpet</option>
+                    <option className="font-medium text-base">Toys</option>
+                    <option className="font-medium text-base">Shawls</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 grid sm:grid-cols-2 w-full gap-x-[30px]">
               <div className="flex flex-col w-full ">
-                <label className="mb-3 text-sm leading-none text-black">Email Address</label>
-                <input
-                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => {
-                    setFormData({ ...formData, email: e.target.value });
-                  }}
-                  tabIndex={0}
-                  aria-label="Enter email Address"
-                />
-                <p className="text-xs text-right w-full font-bold text-red-600 mt-1">{formError.email}</p>
-              </div>
-              <div className="flex flex-col  w-full  mt-2">
                 <label className="mb-3 text-sm leading-none text-black">
-                  Product Name
+                  Price
                 </label>
-                <select
-                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#8c0327]"
-                  type="text"
-                  value={formData.productName}
-                  defaultValue={formData.productName}
-                  onChange={(e) => {
-                    setFormData({ ...formData, productName: e.target.value });
-                  }}
-                  tabIndex={0}
-                  aria-label="Enter last name"
-                >
-                  <option className="font-medium text-base">Ajrak</option>
-                  <option  className="font-medium text-base">Jewellery</option>
-                  <option className="font-medium text-base">T-Shirts</option>
-                  <option className="font-medium text-base">Hoddies</option>
-                  <option className="font-medium text-base">Groom</option>
-                </select>
+                <CurrencyInput
+                  id="input-example"
+                  name="input-name"
+                  className="focus:ring-[2px] focus:ring-[#a95414] focus:outline-none bg-gray-300 border-gray-200 border rounded"
+                  placeholder="Please enter price"
+                  value={formData.price}
+                  decimalsLimit={8}
+                  // onValueChange={(e) => {
+                  //   setFormData({ ...formData, price: e.target.value });
+                  // }}
+                  onValueChange={(value, name) =>
+                    setFormData({ ...formData, price: value })
+                  }
+                />
               </div>
-              <div className="flex flex-col w-full mt-2 ">
-                <label className="mb-3 text-sm leading-none text-black">Phone Number</label>
+              <div className="flex flex-col  md:mt-0 mt-6 ">
+                <label className="mb-3 text-sm leading-none text-black">
+                  Phone Number
+                </label>
                 <input
-                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#8c0327] border-gray-200"
+                  className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                   type="phone"
                   value={formData.phone}
                   onChange={(e) => {
@@ -179,32 +206,16 @@ useEffect(()=>{
                   tabIndex={0}
                   aria-label="Enter email Address"
                 />
-                <p className="text-xs text-right w-full font-bold text-red-600 mt-1">{formError.phone}</p>
+                <p className="text-xs text-right w-full font-bold text-red-600 mt-1">
+                  {formError.phone}
+                </p>
               </div>
-            </div>
-            <div className="mt-6 md:flex items-center justify-center">
-              <div className="flex flex-col w-full ">
-                <label className="mb-3 text-sm leading-none text-black">
-                  Price
-                </label>
-                <CurrencyInput
-                  id="input-example"
-                  name="input-name"
-                  placeholder="Please enter price"
-                  value={formData.price}
-                  decimalsLimit={8}
-                  // onValueChange={(e) => {
-                  //   setFormData({ ...formData, price: e.target.value });
-                  // }}
-                  onValueChange={(value, name) => setFormData({ ...formData, price: value })}
-                />
-              </div>
-              <div className="flex flex-col md:ml-12 w-full md:mt-0 mt-6">
+              {/* <div className="flex flex-col  md:mt-0 mt-6">
                 <label className="mb-3 text-sm leading-none text-black">
                   Size
                 </label>
                 <select
-                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#8c0327]"
+                  className="w-full  text-sm font-medium focus:outline-none leading-none text-gray-900 p-3 border rounded border-gray-200 focus:ring-[2px] bg-gray-300 focus:ring-[#a95414]"
                   type="text"
                   value={formData.size}
                   onChange={(e) => {
@@ -219,7 +230,7 @@ useEffect(()=>{
                   <option className="font-medium text-base">XL</option>
                   <option className="font-medium text-base">XXL</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <div className="flex flex-col  w-full  mt-8">
               <div className="flex justify-center items-center w-full">
@@ -261,7 +272,7 @@ useEffect(()=>{
               </div>
             </div>
             <div className="flex mt-6 justify-center">
-              <div className="mb-3 xl:w-96">
+              <div className="mb-3 w-full">
                 <textarea
                   className="
         form-control
@@ -278,7 +289,7 @@ useEffect(()=>{
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-[#8c0327] focus:outline-none
+        focus:text-gray-700 focus:bg-white focus:border-[#a95414] focus:outline-none
       "
                   id="exampleFormControlTextarea1"
                   rows="3"
@@ -293,7 +304,7 @@ useEffect(()=>{
 
             <button
               type="submit"
-              className="flex w-full items-center text-xl text-white justify-center md:py-3 bg-[#8c0327] py-2 md:px-12 px-8   mt-4 md:mt-6 rounded"
+              className="flex w-full items-center text-xl text-white justify-center md:py-3 transition-all duration-300 bg-[#a95414] hover:bg-[#9d4d10] py-2 md:px-12 px-8   mt-4 md:mt-6 rounded"
             >
               Post
             </button>

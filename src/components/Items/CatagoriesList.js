@@ -20,6 +20,18 @@ const CatagoriesList = () => {
   const modalIsActive = useSelector((state) => state.ui.modalIsVisible);
   // const isLoading = useSelector((state) => state.ui.isLoading);
   useEffect(() => {
+    if (modalIsActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [modalIsActive]);
+  
+  useEffect(() => {
     const getData = async () => {
       dispatch(uiActions.toggleLoading(true));
       setIsLoading(true);
@@ -110,8 +122,8 @@ const CatagoriesList = () => {
            />
          );
        });
-       const tShirtlist = items
-         .filter((name) => name.name === "T-Shirts")
+       const carpet = items
+         .filter((name) => name.name === "Carpet")
          .map((item) => {
            return (
              <Item
@@ -132,8 +144,8 @@ const CatagoriesList = () => {
              />
            );
          });
-          const hoddylist = items
-            .filter((name) => name.name === "Hoddies")
+          const toys = items
+            .filter((name) => name.name === "Toys")
             .map((item) => {
               return (
                 <Item
@@ -154,8 +166,8 @@ const CatagoriesList = () => {
                 />
               );
             });
-              const groom = items
-                .filter((name) => name.name === "Groom")
+              const shawls = items
+                .filter((name) => name.name === "Shawls")
                 .map((item) => {
                   return (
                     <Item
@@ -164,7 +176,7 @@ const CatagoriesList = () => {
                       description={item.description}
                       img={item.img}
                       key={item.id}
-                      size={item.availableSize}
+                      size={item.availableSize} 
                       onClick={() => {
                         setSelectedItem(item);
                         data?.auth ? toggleModalHandler() : (window.location.href = "./log-in");
@@ -186,56 +198,56 @@ const CatagoriesList = () => {
                 onClick={() => setStatus(0)}
                 className={
                   status == 0
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] font-[700] flex flex-col justify-between border-indigo-700 pt-3 rounded-t"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">Ajrak</span>
-                {status == 0 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 0 && <div className="w-full h-1 bg-[#A95414]  rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(1)}
                 className={
                   status == 1
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-[700]"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
                 <span className="mb-3 cursor-pointer">Jewellery</span>
-                {status == 1 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                {status == 1 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(2)}
                 className={
                   status == 2
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-[700]"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
-                <span className="mb-3 cursor-pointer">T-Shirts</span>
-                {status == 2 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                <span className="mb-3 cursor-pointer">Carpet</span>
+                {status == 2 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(3)}
                 className={
                   status == 3
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t font-[700]"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
-                <span className="mb-3 cursor-pointer">Hoodies</span>
-                {status == 3 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                <span className="mb-3 cursor-pointer">Toys</span>
+                {status == 3 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               <li
                 onClick={() => setStatus(4)}
                 className={
                   status == 4
-                    ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-normal"
+                    ? "text-sm text-[#A95414] flex flex-col justify-between border-indigo-700 pt-3 rounded-t  font-[700]"
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
-                <span className="mb-3 cursor-pointer">Groom Dresses</span>
-                {status == 4 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
+                <span className="mb-3 cursor-pointer">Shawls</span>
+                {status == 4 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               
             </ul>
@@ -255,20 +267,20 @@ const CatagoriesList = () => {
         )}
         {status == 2 && (
           <div className="mt-6">
-            <p className="mb-2 text-2xl text-gray-800">T-Shirts</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{tShirtlist}</div>
+            <p className="mb-2 text-2xl text-gray-800">Carpet</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{carpet}</div>
           </div>
         )}
         {status == 3 && (
           <div className="mt-6">
-            <p className="mb-2 text-2xl text-gray-800">Hoodies</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{hoddylist}</div>
+            <p className="mb-2 text-2xl text-gray-800">Toys</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{toys}</div>
           </div>
         )}
         {status == 4 && (
           <div className="mt-6">
-            <p className="mb-2 text-2xl text-gray-800">Groom dresses</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{groom}</div>
+            <p className="mb-2 text-2xl text-gray-800">Shawls</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{shawls}</div>
           </div>
         )}
        

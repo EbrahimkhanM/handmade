@@ -57,7 +57,7 @@ console.log("summary data",items)
           </p> */}
           <OrderSummary data= {items}/>
           <Link to="/home">
-          <button className="flex items-center text-xl text-white justify-center md:py-3 bg-[#8c0327] py-2 md:px-12 px-8 focus:outline-none  border rounded  mt-7 md:mt-14   focus:ring-2 focus:ring-offset-2 focus:ring-[#8c0327]">Back to shopping</button>
+          <button className="flex items-center text-xl text-white justify-center md:py-3 bg-[#a95414] py-2 md:px-12 px-8 focus:outline-none  border rounded  mt-7 md:mt-14   focus:ring-2 focus:ring-offset-2 focus:ring-[#a95414]">Back to shopping</button>
         </Link>
         </div>
       </div>
