@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 
 
 
-const ShareToWear = (props) => {
+const HandMade = (props) => {
     const data = useSelector((state) => state);
   return (
     <>
-      <div className={` w-full relative py-20 px-4 bg-cover bg-no-repeat bg-center `} style={{ backgroundImage: `url('/images/image5.jpg')` }}>
+      <div className={` w-full relative py-20 px-4 bg-cover bg-no-repeat bg-center `} style={{ backgroundImage: `url('/images/circlebg.jpg')` }}>
         <div className="absolute top-0 bottom-0 left-0 right-0 z-0 bg-gray-900 bg-opacity-60"></div>
         <div className="w-full flex flex-col justify-center items-center relative z-1 ">
           <div className="first-letter:">
@@ -21,7 +21,7 @@ const ShareToWear = (props) => {
                   data?.auth ? (window.location.href = "/store") : (window.location.href = "./log-in");
                 }}
               >
-              Sale
+              Sale Product
               </button>
            
           </div>
@@ -31,4 +31,4 @@ const ShareToWear = (props) => {
   );
 };
 
-export default ShareToWear;
+export default HandMade;

@@ -10,8 +10,8 @@ const Store = () => {
     <Layout>
       <div className="w-full">
         <div className="container mx-auto ">
-          <div style={{ backgroundImage: `url('/images/product.jpg')` }} className="w-full relative py-20 bg-cover bg-center bg-no-repeat">
-            <div className="absolute z-0 inset-0 bg-gray-900 bg-opacity-40"></div>
+          <div style={{ backgroundImage: `url('/images/product.jpg')` }} className="w-full relative py-24 bg-cover bg-center bg-no-repeat">
+            <div className="absolute z-0 inset-0 bg-gray-900 bg-opacity-60"></div>
             <p className="text-5xl text-center text-white relative z-1 font-semibold">Post Your Product From Here</p>
           </div>
 
