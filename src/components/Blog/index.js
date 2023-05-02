@@ -45,22 +45,22 @@ function index() {
     },
     {
       id: "7",
-      img: "/images/image7.jpg",
-      heading: "Dress to impress, leaving you in stress?",
-      para: "With the month of love fast approaching, along with the excitement comes a load of stress. What gift to buy, what surprise to plan, how",
+      img: "/images/image7.webp",
+      heading: "Ivory Jewellery",
+      para: "Ivory is a hard cream shade material that comes from an elephant trunk. It continues to compare with other expensive stuff like pearl or sliver.Jaipur, Rajasthan is like a hub for Ivory. The ivory bangles are a piece of traditional jewellery, with Rajasthani women wearing them on every important occasion.",
     
     },
     {
       id: "8",
       img: "/images/image8.jpg",
-      heading: "The “I don't have anything to wear” Syndrome",
-      para: "For Sarah, like you, me and every other girl “kiya pehnoo'n?” viz. what shall I wear? Is the biggest question of all times. The decision",
+      heading: "Dhurrie",
+      para: "Dhurrie is a thick and flat handwoven rug, that Indians use to cover the floor to sit or sleep on.They are used for large political or social gatherings and are quite comfortable. Most importantly, they have low maintenance.",
     },
     {
       id: "9",
       img: "/images/image9.jpg",
-      heading: "Wedding dress taking up a major chunk of your budget?",
-      para: "We all know every bride has a fairytale fantasy regarding her wedding and the first and foremost thing she thinks about is the dress in",
+      heading: "Tangaliya Work",
+      para: "Tangaliya Work or Daana weaving specialises in shawls and creating textiles for dress material.Dangassia is the native community of Gujarat who began this craft 700 years back. Surendranagar district of Gujarat is the home of Tangaliya Work.",
     
     },
     // {

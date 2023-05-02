@@ -14,33 +14,41 @@ function sell() {
 
         <Sell
           steps="Step 1"
-          heading="Cleaning out my closet!"
-          image="/images/indigenous.jpg"
-          para="Sort through your closet and look for items that you don’t wear very often but make sure these dresses are in good condition and also in fashion!"
+          heading="Coppersmithing!"
+          image="/images/copper.jpg"
+          para="Copper objects have become an established art form, and copperwork is now cited among the most renowned handicrafts of Türkiye. Every year, thousands of functional and decorative objects are produced using copper. The practice originates in Central Asia, and it’s thought to have been brought to Anatolia by the Seljuk Turks.!"
         />
         <Sell
           steps="Step 2"
-          heading="Bring out the photographer in you!"
+          heading="Khavda Pottery Craft!"
           image="/images/istockphoto.jpg"
           textorder="order-2"
           imgorder="order-1"
-          para="Hang the dress against a white background. Make sure the lighting brings out the print, work and colors of the dress so you can use sunlight or a well lit room will also do the trick! Use a good quality camera. All this will help your dress find a new home quickly!"
+          para="Khavda Pottery Craft is from North Kutch, Gujarat. Earlier people used to make domestic items such as cooking pots, plates, castles and so forth.It is said men bring mud from the lakeside and give it a shape. Then, ladies do all the decorations on it.!"
         />
         <Sell
           steps="Step 3"
-          heading="Tell everyone the worth of your dress!"
+          heading="Balinese handmade rattan eco bags!"
           image="/images/istockphoto2.jpg"
           textorder="order-1"
           imgorder="order-2"
-          para="Tell in detail all the measurements, fabric and any other details that will help the buyer make a purchase decision!"
+          para="Balinese handmade rattan eco bags in a local souvenir market in Bali, Indonesia!"
         />
          <Sell
           steps="Step 4"
-          heading="Bring out the photographer in you!"
+          heading="Handmade Indian Bags!"
           image="/images/istockphoto3.jpg"
           textorder="order-2"
           imgorder="order-1"
-          para="Hang the dress against a white background. Make sure the lighting brings out the print, work and colors of the dress so you can use sunlight or a well lit room will also do the trick! Use a good quality camera. All this will help your dress find a new home quickly!"
+          para="Handmade Indian Vintage Traditional Style Women Shopping Banjara Bag , Women Fashion Look Ibiza Style Outdoor Shoulder bag!"
+        />
+         <Sell
+          steps="Step 5"
+          heading="ETHNIC JEWELLERY!"
+          image="/images/jewellery.jpg"
+          textorder="order-1"
+          imgorder="order-2"
+          para="From minimalist to heavy wedding-themed goodies, you can find a range of hand-made jewellery items in Pakistan.Jewellery is prepared by melting the metal and shaping it in different designs with the help of moulds. Different types of jewels are then fixed with the help of hands and machines to prepare beautiful ornaments.!"
         />
 
         <SellHeader

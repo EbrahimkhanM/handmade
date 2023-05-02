@@ -241,9 +241,9 @@ const PostForm = () => {
                 >
                   <div className="flex flex-col justify-center items-center pt-5 pb-6">
                     {selectedImage ? (
-                      <div className="max-w-[300px] h-[150px] mx-auto my-auto">
+                      <div className="  max-w-[100%] h-[220px] my-auto">
                         <img
-                          className="h-full w-full object-cover rounded-[5px]"
+                          className="h-full w-[100%] object-cover rounded-[5px]"
                           alt="not found"
                           src={URL.createObjectURL(selectedImage)}
                         />
