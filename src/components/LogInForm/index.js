@@ -65,7 +65,7 @@ const LogInForm = () => {
               <div className="flex ">
                 <div className="w-1/4 border-r border-gray-400 text-center ">
                   <Link to='/'>
-                    <img src="/images/Handmade_Products_Logo.jpg" className="w-[80%] mx-auto hover:cursor-pointer" />
+                    <img src="/images/logo.jpg" className="w-[80%] mx-auto hover:cursor-pointer" />
                   </Link>
 
 

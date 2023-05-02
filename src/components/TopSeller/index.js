@@ -19,7 +19,7 @@ const myData = [
     skill: "HANDMADE CAPS",
     city: "Chitral, KPK",
   },
-  { img: "/images/img1.jpg", name: "", skill: "", city: "" },
+  { img: "/images/img1.jpg", name: "Qazi Rayhan", skill: "", city: "Lahore, Punjab" },
 ];
 
 const TopSeller = (props) => {

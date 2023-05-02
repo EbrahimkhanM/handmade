@@ -56,7 +56,7 @@ export const ContactForm = () => {
     }
   };
   return (
-    <div className=" bg-gray-100 ">
+    <div className=" bg-white ">
       <div className="max-w-[710px] py-2  mx-auto  px-4">
         <form
           className="flex flex-col"
@@ -77,7 +77,8 @@ export const ContactForm = () => {
                 tabIndex={0}
                 arial-label="Please input your name"
                 type="text"
-                className="Roboto text-[#4b5563] p-3 mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414]"
+                  className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                // className="Roboto text-[#4b5563] p-3 mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414]"
               />
             </div>
             <div className="w-full flex flex-col  mt-4">
@@ -95,7 +96,8 @@ export const ContactForm = () => {
                 role="input"
                 arial-label="Please input your email"
                 type="email"
-                className="Roboto text-[#4b5563]  p-3  mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414] "
+                // className="Roboto text-[#4b5563]  p-3  mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414] "
+                className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
               />
             </div>
           <div>
@@ -115,7 +117,7 @@ export const ContactForm = () => {
                 aria-label="leave a message"
                 role="textbox"
                 type="name"
-                className="Roboto text-[#4b5563]  p-3 mt-4 text-base border-[1px] border-solid border-[#808090] leading-none  bg-white  resize-none h-36 focus:outline outline-[#a95414]"
+                className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 h-36"
               />
             </div>
           </div>
@@ -133,6 +135,7 @@ export const ContactForm = () => {
         </form>
         <ToastContainer />
       </div>
+      <hr />
     </div>
   );
 };

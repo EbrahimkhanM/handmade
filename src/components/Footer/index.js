@@ -49,6 +49,9 @@ const Footer = () => {
                 <li className="text-[#808080] hover:text-[#a95414]">
                   <a href="./contact-us">Contact Us</a>
                 </li>
+                <li className="text-[#808080] hover:text-[#a95414]">
+                  <a href="./about">About</a>
+                </li>
                 <li className="text-[#808080] hover:text-[#a95414] ">
                   <a href="/log-in" className="inline-flex">
                     Login <Login />

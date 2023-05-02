@@ -3,7 +3,7 @@ import { doc, setDoc, } from "firebase/firestore";
 import { db } from "../firebase";
 import Menu from "../components/Menu/Menu";
 import Cart from "../components/Cart/Cart";
-import ShareToWear from '../components/ShareToWear'
+import HandMade from '../components/HandMade'
 import TopSeller from "../components/TopSeller"
 import Layout from "../components/Layout";
 import CatagoriesList from "../components/Items/CatagoriesList";
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <CatagoriesList />
         <TopSeller title="Featured Artisans" para="Start selling and become our Top Artisans" />
-        <ShareToWear />
+        <HandMade />
         <aside>
           <Menu />
           <Cart />
