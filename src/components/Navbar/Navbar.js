@@ -9,8 +9,14 @@ import { getAuth, signOut } from "firebase/auth";
 import { Logout } from "../Icon/logout";
 import { Login } from "../Icon/login";
 import { Link } from "react-router-dom";
-import {ShoppingCart} from '../Icon/shopping-cart'
+import { ShoppingCart } from "../Icon/shopping-cart";
 
+const navdata = [
+  { name: "How To Sell", link: "./sell" },
+  { name: "About", link: "./about" },
+  { name: "Blogs", link: "./blog" },
+  { name: "Contact Us", link: "./contact-us" },
+];
 
 const Navbar = (props) => {
   const dispatch = useDispatch();
@@ -24,37 +30,32 @@ const Navbar = (props) => {
     dispatch(uiActions.toggleMenu());
   };
 
-    const signOutHandler = () => {
-      const auth = getAuth();
-      signOut(auth)
-        .then(() => {
-          dispatch(authActions.logOut());
-          window.alert("SignOut Successfully");
-          window.location.href = "./home";
-        })
-        .catch((error) => {
-          // An error happened.
-        });
-    }
+  const signOutHandler = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        dispatch(authActions.logOut());
+        window.alert("SignOut Successfully");
+        window.location.href = "./home";
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   return (
     <section className={styles.nav_shadow}>
       <nav className={styles.nav}>
         <Logo />
         <div className="hidden ml-44 md:block my-auto">
-          <div className='flex items-center gap-x-[40px] '>
-            <ol className='flex gap-x-6 font-[500] '>
-              <li className="text-[#808080] hover:text-[#a95414]">
-                <a href="./sell">How To Sell</a>
-              </li>
-              <li className="text-[#808080] hover:text-[#a95414]">
-                <a href="./blog">Blogs</a>
-              </li>
-              <li className="text-[#808080] hover:text-[#a95414]">
-                <a href="./contact-us">Contact Us</a>
-              </li>
-              <li className="text-[#808080] hover:text-[#a95414]">
-                <a href="./about">About</a>
-              </li>
+          <div className="flex items-center gap-x-[40px] ">
+            <ol className="flex gap-x-6 font-[500] ">
+              {navdata.map((item, index) => {
+                return (
+                  <li key={index} className="text-[#808080] hover:text-[#a95414]">
+                    <a href={item.link}>{item.name}</a>
+                  </li>
+                );
+              })}
             </ol>
           </div>
         </div>
@@ -67,17 +68,29 @@ const Navbar = (props) => {
           <div className="hidden md:block">
             <div className="flex gap-x-5">
               <button className="hover:text-[#a95414] text-[#808080] group">
-                <Link to="/log-in" className="flex gap-x-1 items-center ">Login <Login fill="#808080" className="group-hover:fill-[#a95414]"/>  </Link>
+                <Link to="/log-in" className="flex gap-x-1 items-center ">
+                  Login{" "}
+                  <Login
+                    fill="#808080"
+                    className="group-hover:fill-[#a95414]"
+                  />{" "}
+                </Link>
               </button>
-              <button onClick={signOutHandler} className="flex gap-x-1 items-center group text-[#808080] hover:text-[#a95414] ">
-                <Logout fill="#808080" className="group-hover:fill-[#a95414]"/> logout
+              <button
+                onClick={signOutHandler}
+                className="flex gap-x-1 items-center group text-[#808080] hover:text-[#a95414] "
+              >
+                <Logout fill="#808080" className="group-hover:fill-[#a95414]" />{" "}
+                logout
               </button>
             </div>
           </div>
           <Navlink onClick={toggleCartHandler}>
             <div className={styles["nav__btn-wrapper"]}>
-             <ShoppingCart className="hover:fill-[#a95414]"/>
-              {totalQuantity > 0 && <span className={styles.nav__counter}>{totalQuantity}</span>}
+              <ShoppingCart className="hover:fill-[#a95414]" />
+              {totalQuantity > 0 && (
+                <span className={styles.nav__counter}>{totalQuantity}</span>
+              )}
             </div>
           </Navlink>
         </div>

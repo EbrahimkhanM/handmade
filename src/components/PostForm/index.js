@@ -17,7 +17,6 @@ const PostForm = () => {
   const [formError, setFromError] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
-
   const validate = (values) => {
     const errors = {};
     const nameRegex = /^[a-zA-Z ]+$/;
@@ -279,9 +278,6 @@ const PostForm = () => {
                     id="dropzone-file"
                     type="file"
                     onChange={handleImg}
-                    // onChange={(event) => {
-                    //   setSelectedImage(event.target.files[0]);
-                    // }}
                     className="hidden"
                   />
                 </label>
