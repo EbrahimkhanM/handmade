@@ -1,43 +1,37 @@
 export default async function (req, res) {
+  console.log("mailData >>>",req.body)
   require("dotenv").config();
 
   let nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
-    port: 465,
+    port: 587,
     host: "smtp.gmail.com",
     auth: {
-      user: process.env.YOUR_MAIL,
-      pass: process.env.MAIL_API,
+      user: process.env.MAIL_FROM,
+      pass: process.env.MAIL_AUTH,
     },
-    secure: true,
-    // requireTLS:false,
-    // secureConnection: false,
-    // tls: { ciphers: "SSLv3" },
+    secure: false,
   });
+
   const mailData = {
-    from: process.env.YOUR_MAIL,
-    to: process.env.RECIVER_MAIL,
-    subject: `Messege From Handicrafts`,
-      // text: req.body.message + " | Sent from: " + req.body.email,
+    from: process.env.USER_EMAIL,
+    to: req.body.email,
+    subject: `Message From Vigorant`,
     html: `
-      <div><strong>Name:</strong> ${req.body.name}</div>
-      <br/>
-      <div><strong>Email:</strong> ${req.body.email}</div>
-      <br/>
-      <div><strong>Message:</strong> ${req.body.message}</div>
-      <br/>
-      `,
+    <div>
+        <p>Name: ${req.body.name}</p>
+        <p>Email: ${req.body.email}</p>
+        <p>time: ${req.body.message}</p>
+        </div>
+   ` ,
   };
-  await new Promise((resolve, reject) => {
-    transporter.sendMail(mailData, function (err, info) {
-      if (err) {
-        console.log(err);
-        reject(err);
-      } else {
-        console.log(info);
-        resolve(info);
-      }
+  await transporter
+    .sendMail(mailData)
+   
+    .then((re) => {
+      res.status(200).json({ status: "OK" });
+    })
+    .catch((er) => {
+      res.status(500).json({ status: "error" });
     });
-  });
-  res.status(200).json({ status: "OK" });
 }
