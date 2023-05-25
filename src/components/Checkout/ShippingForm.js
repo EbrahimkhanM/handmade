@@ -28,7 +28,7 @@ const ShippingForm = (props) => {
     const isDefault = (value) => value === "default";
 
     const nameRegex = /^[a-zA-Z ]+$/;
-    const addressRegex = /^\d+\s[A-z]+\s[A-z]+/;
+    const addressRegex = /^[a-zA-Z ]+$/;
     const zipRegex = /^\d{3,5}$|^\d{5}-\d{4}$/;
     const phoneRegex = /^[\+]?[(]?[0-9]{4}[)]?[-\s\.]?[0-9]{4}[-\s\.]?[0-9]{3,6}$/;
 
