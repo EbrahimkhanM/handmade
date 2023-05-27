@@ -14,9 +14,9 @@ function sell() {
 
         <Sell
           steps="Step 1"
-          heading="Coppersmithing!"
+          heading="Register or Sign Up!"
           image="/images/copper.jpg"
-          para="Copper objects have become an established art form, and copperwork is now cited among the most renowned handicrafts of Türkiye. Every year, thousands of functional and decorative objects are produced using copper. The practice originates in Central Asia, and it’s thought to have been brought to Anatolia by the Seljuk Turks.!"
+          para="Begin by explaining that interested sellers need to register or sign up on HANDICRAFTS web app to access the selling feature. Seller button  is available on home page."
         />
         <Sell
           steps="Step 2"

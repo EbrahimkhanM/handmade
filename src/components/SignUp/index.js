@@ -19,7 +19,6 @@ const Register = () => {
   const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   const nameRegex = /^[a-zA-Z ]+$/;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // setFormErrors(Validate(formData))
