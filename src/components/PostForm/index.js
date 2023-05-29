@@ -167,7 +167,7 @@ const PostForm = () => {
                     <option className="font-medium text-base">Jewellery</option>
                     <option className="font-medium text-base">Carpet</option>
                     <option className="font-medium text-base">Toys</option>
-                    <option className="font-medium text-base">Shawls</option>
+                    <option className="font-medium text-base">others</option>
                   </select>
                 </div>
               </div>

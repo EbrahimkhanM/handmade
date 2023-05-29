@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
-import {ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const ContactForm = () => {
@@ -47,7 +47,7 @@ export const ContactForm = () => {
             // console.log("Response succeeded!");
             toast("Thank you for contacting us!");
           } else {
-            // console.log("Email/Password is invalid.");
+            console.log("Email/Password is invalid.", res);
             toast("Something is wrong.");
           }
         })
@@ -63,43 +63,43 @@ export const ContactForm = () => {
           onSubmit={handleSubmit(onSubmit)}
           method="POST"
         >
-            <div className="flex flex-col w-full  ">
-              <label className="text-[18px] leading-[20px] font-[600] text-[#a95414] Roboto">
-                Name <span className="text-[#a95414]">*</span>
-              </label>
-              <input
-                {...register("name", { required: true })}
-                // placeholder="Name"
-                id="name"
-                name="name"
-                required
-                onChange={(e) => setDis({ ...dis, name: e.target.value })}
-                tabIndex={0}
-                arial-label="Please input your name"
-                type="text"
-                  className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                // className="Roboto text-[#4b5563] p-3 mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414]"
-              />
-            </div>
-            <div className="w-full flex flex-col  mt-4">
-              <label className="text-[18px] leading-[20px] font-[600] text-[#a95414] Roboto">
-                Email <span className="text-[#a95414]">*</span>
-              </label>
-              <input
-                {...register("email", { required: true })}
-                tabIndex={0}
-                // placeholder="Email"
-                id="email"
-                name="email"
-                onChange={(e) => setDis({ ...dis, email: e.target.value })}
-                required
-                role="input"
-                arial-label="Please input your email"
-                type="email"
-                // className="Roboto text-[#4b5563]  p-3  mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414] "
-                className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-              />
-            </div>
+          <div className="flex flex-col w-full  ">
+            <label className="text-[18px] leading-[20px] font-[600] text-[#a95414] Roboto">
+              Name <span className="text-[#a95414]">*</span>
+            </label>
+            <input
+              {...register("name", { required: true })}
+              // placeholder="Name"
+              id="name"
+              name="name"
+              required
+              onChange={(e) => setDis({ ...dis, name: e.target.value })}
+              tabIndex={0}
+              arial-label="Please input your name"
+              type="text"
+              className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+              // className="Roboto text-[#4b5563] p-3 mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414]"
+            />
+          </div>
+          <div className="w-full flex flex-col  mt-4">
+            <label className="text-[18px] leading-[20px] font-[600] text-[#a95414] Roboto">
+              Email <span className="text-[#a95414]">*</span>
+            </label>
+            <input
+              {...register("email", { required: true })}
+              tabIndex={0}
+              // placeholder="Email"
+              id="email"
+              name="email"
+              onChange={(e) => setDis({ ...dis, email: e.target.value })}
+              required
+              role="input"
+              arial-label="Please input your email"
+              type="email"
+              // className="Roboto text-[#4b5563]  p-3  mt-4 text-base leading-none bg-white border-[1px] border-solid border-[#808090] focus:outline outline-[#a95414] "
+              className="bg-gray-300 border rounded focus:outline-none focus:ring-[2px] focus:ring-[#a95414] text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+            />
+          </div>
           <div>
             <div className="flex flex-col w-full mt-4 ">
               <label className="text-[18px] leading-[20px] font-[600] text-[#a95414] Roboto">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { uiActions } from "../../store/uiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/authSlice";
@@ -10,7 +10,7 @@ import { Logout } from "../Icon/logout";
 import { Login } from "../Icon/login";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "../Icon/shopping-cart";
-
+import { auth, db } from "../../firebase";
 const navdata = [
   { name: "How To Sell", link: "./sell" },
   { name: "About", link: "./about" },
@@ -19,6 +19,7 @@ const navdata = [
 ];
 
 const Navbar = (props) => {
+  const [currentUser, setCurrentUser] = useState(null);
   const dispatch = useDispatch();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
@@ -42,6 +43,42 @@ const Navbar = (props) => {
         // An error happened.
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+
+    return () => {
+      unsubscribe(); // Unsubscribe from the onAuthStateChanged listener when component unmounts
+    };
+  }, []);
+
+  // Get currentuser address
+
+  //   const [user, setUser] = useState(null);
+
+  //   useEffect(() => {
+  //     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+  //       if (currentUser) {
+  //         const userRef = db.collection('users').doc(currentUser.uid);
+  //         const snapshot = await userRef.get();
+  //         if (snapshot.exists) {
+  //           setUser(snapshot.data());
+  //         }
+  //       } else {
+  //         setUser(null);
+  //       }
+  //     });
+  // console.log("userreffff-->",user);
+  //     return () => unsubscribe();
+  //   }, []);
+
+  //   if (!user) {
+  //     return <div>Loading...</div>;
+  //   }
+
+  // console.log("Current user",user);
   return (
     <section className={styles.nav_shadow}>
       <nav className={styles.nav}>
@@ -51,7 +88,10 @@ const Navbar = (props) => {
             <ol className="flex gap-x-6 font-[500] ">
               {navdata.map((item, index) => {
                 return (
-                  <li key={index} className="text-[#808080] hover:text-[#a95414]">
+                  <li
+                    key={index}
+                    className="text-[#808080] hover:text-[#a95414]"
+                  >
                     <a href={item.link}>{item.name}</a>
                   </li>
                 );
@@ -65,17 +105,29 @@ const Navbar = (props) => {
               <i class="ri-function-line "></i>
             </Navlink>
           </div>
+
           <div className="hidden md:block">
+            
             <div className="flex gap-x-5">
+            <div className=" ">
+            {currentUser ? (
+              <div className="bg-gray-300 inline-flex p-2 px-2.5 rounded-full">
+                {/* <p>Welcome, {currentUser.Name}</p> */}
+                <p className="uppercase">{currentUser.email?.slice(0,2)}</p>
+                {/* <p>UID: {currentUser.uid}</p> */}
+              </div>
+            ) : (
               <button className="hover:text-[#a95414] text-[#808080] group">
-                <Link to="/log-in" className="flex gap-x-1 items-center ">
-                  Login{" "}
-                  <Login
-                    fill="#808080"
-                    className="group-hover:fill-[#a95414]"
-                  />{" "}
-                </Link>
-              </button>
+              <Link to="/log-in" className="flex gap-x-1 items-center ">
+                Login{" "}
+                <Login
+                  fill="#808080"
+                  className="group-hover:fill-[#a95414]"
+                />{" "}
+              </Link>
+            </button>
+            )}
+          </div>
               <button
                 onClick={signOutHandler}
                 className="flex gap-x-1 items-center group text-[#808080] hover:text-[#a95414] "

@@ -166,8 +166,8 @@ const CatagoriesList = () => {
                 />
               );
             });
-              const shawls = items
-                .filter((name) => name.name === "Shawls")
+              const others = items
+                .filter((name) => name.name === "others")
                 .map((item) => {
                   return (
                     <Item
@@ -188,6 +188,7 @@ const CatagoriesList = () => {
                     />
                   );
                 });
+                
   return (
     <>
       <section className="container mx-auto lg:px-6">
@@ -246,7 +247,7 @@ const CatagoriesList = () => {
                     : "text-sm text-gray-600 py-3  font-normal cursor-pointer hover:text-gray-800"
                 }
               >
-                <span className="mb-3 cursor-pointer">Shawls</span>
+                <span className="mb-3 cursor-pointer">others</span>
                 {status == 4 && <div className="w-full h-1 bg-[#A95414] rounded-t-md" />}
               </li>
               
@@ -279,8 +280,8 @@ const CatagoriesList = () => {
         )}
         {status == 4 && (
           <div className="mt-6">
-            <p className="mb-2 text-2xl text-gray-800">Shawls</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{shawls}</div>
+            <p className="mb-2 text-2xl text-gray-800">others</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 px-6 lg:px-0">{others}</div>
           </div>
         )}
        

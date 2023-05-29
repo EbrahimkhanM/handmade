@@ -2,11 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { authActions } from "../../store/authSlice";
-import { createUserWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../firebase";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { v4 } from "uuid";
+import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
   const [formData, setFormData] = useState({});
@@ -14,46 +19,50 @@ const Register = () => {
   const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   const nameRegex = /^[a-zA-Z ]+$/;
- 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // setFormErrors(Validate(formData))
     // if(!emailRegex.test(formData.email)){
     //   toast.error("invalid email!")
     // }
-    if(!passRegex.test(formData.pass)){
-      toast.error("invalid password")
+    if (!passRegex.test(formData.pass)) {
+      toast.error("invalid password");
     }
-    if(!emailRegex.test(formData.email)){
-      toast.error("invalid email")
+    if (!emailRegex.test(formData.email)) {
+      toast.error("invalid email");
     }
-    if(!nameRegex.test(formData.username)){
-      toast.error("invalid user name ")
+    if (!nameRegex.test(formData.username)) {
+      toast.error("invalid user name ");
     }
 
-    if( passRegex.test(formData.pass) && nameRegex.test(formData.name) && nameRegex.test(formData.username)){
-     
-      createUserWithEmailAndPassword(
-        auth,
-        formData.email,
-        formData.pass,
-       
-      )
+    if (
+      passRegex.test(formData.pass) &&
+      nameRegex.test(formData.name) &&
+      nameRegex.test(formData.username)
+    ) {
+      createUserWithEmailAndPassword(auth, formData.email, formData.pass)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("user info",user)
-          toast.success("your account is created successfully") 
-          window.location.href="/log-in"
+          console.log("user info", user);
+          const setColl = async () => {
+            toast.success("your account is created successfully");
+            await setDoc(doc(db, "users", userCredential.user.uid), {
+              name: formData.name,
+              username: formData.username,
+              email: formData.email,
+              password: formData.pass,
+              uid:userCredential.user.uid,
+            });
+            window.location.href = "/log-in";
+          };
+          return setColl();
         })
         .catch((error) => {
           const errorCode = error.code;
-          
-          toast.error(error.message)
+
+          toast.error(error.message);
         });
-    
     }
-   
-      
   };
   return (
     <>
@@ -86,7 +95,6 @@ const Register = () => {
                   }}
                   aria-label="Enter first name"
                 />
-                
               </div>
               <div className="flex flex-col md:ml-12 w-full md:mt-0 mt-8">
                 <label className="mb-3 text-sm leading-none text-black">
@@ -102,7 +110,6 @@ const Register = () => {
                   tabIndex={0}
                   aria-label="Enter last name"
                 />
-              
               </div>
             </div>
             <div className="mt-12 md:flex items-center justify-center">
@@ -120,7 +127,6 @@ const Register = () => {
                   tabIndex={0}
                   aria-label="Enter email Address"
                 />
-                
               </div>
               <div className="flex flex-col md:ml-12 w-full md:mt-0 mt-8">
                 <label className="mb-3 text-sm leading-none text-black">
@@ -136,7 +142,6 @@ const Register = () => {
                   tabIndex={0}
                   aria-label="Enter email Address"
                 />
-                
               </div>
             </div>
 
