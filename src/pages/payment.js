@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../store/uiSlice";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { useSelector } from "react-redux";
 
 const Payment = () => {
   const [users, setUsers] = useState();
@@ -17,11 +18,11 @@ const Payment = () => {
   console.log("Mypayment items is here----------->", items)
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState(null);
-
+  const products = useSelector((state) => state.cart.items);
+console.log("products in cart---------------->",)
   const user = auth.currentUser;
   const dispatch = useDispatch();
 
-  console.log("user info", user);
   useEffect(() => {
     
     const getData = async () => {
