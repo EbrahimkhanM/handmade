@@ -30,9 +30,9 @@ const LogInForm = () => {
     if (emailRegex.test(formData.email) && passRegex.test(formData.pass)) {
       signInWithEmailAndPassword(auth, formData.email, formData.pass).then((userCredential) => {
         const user = userCredential.user;
-        console.log("User data",user?.uid)
+        // console.log("User data",user?.uid)
         dispatch(authActions.logIn());
-        // window.location.href = "/home";  
+        window.location.href = "/home";  
 
       });
     }

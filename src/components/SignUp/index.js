@@ -46,11 +46,12 @@ const Register = () => {
           console.log("user info", user);
           const setColl = async () => {
             toast.success("your account is created successfully");
-            await setDoc(doc(db, "users", "user" + v4()), {
+            await setDoc(doc(db, "users", userCredential.user.uid), {
               name: formData.name,
               username: formData.username,
               email: formData.email,
               password: formData.pass,
+              uid:userCredential.user.uid,
             });
             window.location.href = "/log-in";
           };
