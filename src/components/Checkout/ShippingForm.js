@@ -102,7 +102,7 @@ const ShippingForm = (props) => {
           <label htmlFor="name" className={styles["form__control-label"]}>
             First name
           </label>
-          <input type="text" id="name" value={currentUser?.email} className={styles["form__control-input"]} ref={nameInputRef} />
+          <input type="text" id="name"  className={styles["form__control-input"]} ref={nameInputRef} />
           {!formInputsValidity.name && <p className={styles["form__control-invalid"]}>Please enter a valid name.</p>}
         </div>
         <div className={styles.form__control}>

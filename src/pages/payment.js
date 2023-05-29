@@ -14,6 +14,7 @@ const Payment = () => {
   const auth = getAuth();
   const [selectedItem, setSelectedItem] = useState(false);
   const [items, setItems] = useState([]);
+  console.log("Mypayment items is here----------->", items)
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState(null);
 
