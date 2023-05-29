@@ -21,7 +21,6 @@ const Checkout = () => {
   const [didSubmit, setDidSubmit] = useState(false);
   const dispatch = useDispatch();
   const orderedItems = useSelector((state) => state.cart);
-  console.log("ordered item",orderedItems)
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const [state, setState] = useState({
     data: null,
@@ -29,7 +28,6 @@ const Checkout = () => {
   const stripePromise = loadStripe(
     "pk_test_51LBCqSG99swRqIy6mzJOxPomq05WbzXmntyeZqgoQ6xmZ7hKHO1pk3EuOfJr5CJ3kIs2DvWMyBqYZdKYllTcQGZ900w1EJ5M3P"
   );
-  console.log("test Stripe", stripePromise);
 
   useEffect(() => {
     callBackendAPI()

@@ -20,7 +20,6 @@ const Payment = () => {
   const user = auth.currentUser;
   const dispatch = useDispatch();
 
-  console.log("user info", user);
   useEffect(() => {
     
     const getData = async () => {
