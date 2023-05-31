@@ -1,78 +1,97 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import { db } from '../../firebase'; 
+import axios from "axios";
+import { db } from "../../firebase";
 
 const LocationMap = (props) => {
-  const [currentLocation, setCurrentLocation] = useState(null);
-  const [cityName, setCityName] = useState('');
-  const [products, setProducts] = useState([]);
-  console.log("currentLocation------->",currentLocation)
-  console.log("cityName------->",cityName)
-  console.log("products------->",products)
-  const getCurrentLocation = () => {
+  // const [currentLocation, setCurrentLocation] = useState(null);
+  // const [cityName, setCityName] = useState("");
+  
+  // const getCurrentLocation = () => {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => {
+  //         const { latitude, longitude } = position.coords;
+  //         setCurrentLocation({ latitude, longitude });
+  //         // Send request to Geocoding API
+  //         axios
+  //           .get(
+  //             `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+  //           )
+  //           .then((response) => {
+  //             console.log('Geocoding API response:', response.data);
+  //             if (response.data && response.data.results.length > 0) {
+  //               const addressComponents =
+  //                 response.data.results[0].address_components;
+  //               const city = addressComponents.find((component) =>
+  //                 component.types.includes("locality")
+  //               );
+  //               console.log("City in ftn------>", city);
+  //               if (city) {
+  //                 setCityName(city.long_name);
+  //               }
+  //             }
+  //           })
+  //           .catch((error) => {
+  //             console.error("Error geocoding coordinates:", error);
+  //           });
+  //       },
+  //       (error) => {
+  //         console.error("Error getting user location:", error);
+  //       }
+  //     );
+  //   } else {
+  //     console.error("Geolocation is not supported by this browser.");
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getCurrentLocation();
+  // }, [cityName]);
+
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [city, setCity] = useState(null);
+  console.log("city------>",city)
+  console.log("longitude------>",longitude)
+  console.log("latitude------>",latitude)
+
+  useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          const { latitude, longitude } = position.coords;
-          setCurrentLocation({ latitude, longitude });
-  
-          // Send request to Geocoding API
-          axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=<YOUR_API_KEY>`)
-            .then(response => {
-              if (response.data && response.data.results.length > 0) {
-                const addressComponents = response.data.results[0].address_components;
-                const city = addressComponents.find(component =>
-                  component.types.includes('locality')
-                );
-                if (city) {
-                  setCityName(city.long_name);
-                }
-              }
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+
+          // Call the Nominatim API
+          fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${position.coords.latitude}&lon=${position.coords.longitude}`)
+            .then(response => response.json())
+            .then(data => {
+              console.log("resss data",data)
+              const city = data.address.road;
+              console.log("City in city",city);
+              setCity(city);
             })
             .catch(error => {
-              console.error('Error geocoding coordinates:', error);
+              console.log(error);
             });
         },
         error => {
-          console.error('Error getting user location:', error);
+          console.log(error);
         }
       );
     } else {
-      console.error('Geolocation is not supported by this browser.');
+      console.log('Geolocation is not supported by this browser.');
     }
-  };
-  const fetchProducts = async (city) => {
-    console.log("city-------------------->",city)
-    try {
-      const productsRef = db.collection('products');
-      console.log("productsRef-------------------->")
-      const snapshot = await productsRef.where('city', '==', city).get();
-      const productsData = [];
-      snapshot.forEach(doc => {
-        const product = doc.data();
-        productsData.push(product);
-      });
-      setProducts(productsData);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
-  
-  useEffect(() => {
-    getCurrentLocation();
-  }, []);  
-  useEffect(() => {
-    // Assuming you have the city name available in a state variable named 'cityName'
-    fetchProducts('abbottabad');
   }, []);
-
   return (
     <>
       <div className="container mx-auto mt-12 mb-20">
-<button>Test</button>
+        <h2>Products Nearby You {city}</h2>
       </div>
     </>
   );
 };
 
 export default LocationMap;
+
+
