@@ -30,7 +30,6 @@ const cartSlice = createSlice({
           name: newItem.name,
           img: newItem.img,
           userName: newItem.userName,
-          enteredSize: newItem.size,
           price: newItem.price,
           quantity: 1,
         });

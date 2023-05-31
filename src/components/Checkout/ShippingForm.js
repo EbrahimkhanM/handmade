@@ -1,8 +1,19 @@
 import styles from "./ShippingForm.module.css";
 import { useEffect, useRef, useState } from "react";
-
+import { auth, db } from "../../firebase";
 
 const ShippingForm = (props) => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+
+    return () => {
+      unsubscribe(); // Unsubscribe from the onAuthStateChanged listener when component unmounts
+    };
+  }, []);
  
   const nameInputRef = useRef();
   const surnameInputRef = useRef();
@@ -28,7 +39,7 @@ const ShippingForm = (props) => {
     const isDefault = (value) => value === "default";
 
     const nameRegex = /^[a-zA-Z ]+$/;
-    const addressRegex = /^\d+\s[A-z]+\s[A-z]+/;
+    const addressRegex = /^[a-zA-Z ]+$/;
     const zipRegex = /^\d{3,5}$|^\d{5}-\d{4}$/;
     const phoneRegex = /^[\+]?[(]?[0-9]{4}[)]?[-\s\.]?[0-9]{4}[-\s\.]?[0-9]{3,6}$/;
 
@@ -91,7 +102,7 @@ const ShippingForm = (props) => {
           <label htmlFor="name" className={styles["form__control-label"]}>
             First name
           </label>
-          <input type="text" id="name" className={styles["form__control-input"]} ref={nameInputRef} />
+          <input type="text" id="name"  className={styles["form__control-input"]} ref={nameInputRef} />
           {!formInputsValidity.name && <p className={styles["form__control-invalid"]}>Please enter a valid name.</p>}
         </div>
         <div className={styles.form__control}>

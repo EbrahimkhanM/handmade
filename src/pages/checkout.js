@@ -26,7 +26,7 @@ const Checkout = () => {
     data: null,
   });
   const stripePromise = loadStripe(
-    "pk_test_51LBCqSG99swRqIy6mzJOxPomq05WbzXmntyeZqgoQ6xmZ7hKHO1pk3EuOfJr5CJ3kIs2DvWMyBqYZdKYllTcQGZ900w1EJ5M3P"
+    "pk_test_51NBHJ7DqTIaHg4BaOfnPNr7sN231J1o0GWtHwjAv0qgAi8LEdQ0NpRDMyohSWz8zWyQ4Qtodmt9vjOOAvkInjjJj00zzd4ZA66"
   );
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const Checkout = () => {
       if(orderedItems.items.length){
         await setDoc(doc(db, "orders", "order" + v4()), {
           orderedItem:orderedItems,
-          clientInfo:userData,
+          // clientInfo:userData,
         })
           .then((res) => {
             toast.success("success")

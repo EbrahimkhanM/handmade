@@ -3,7 +3,7 @@ import { cartActions } from "./cartSlice";
 export const getCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch("https://share-to-wear-default-rtdb.firebaseio.com/item.json");
+      const response = await fetch("https://handi-13c90-default-rtdb.firebaseio.com/item.json");
 
       if (!response.ok) {
         throw new Error("Could not fetch cart data!");
