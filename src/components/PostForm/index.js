@@ -11,6 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const PostForm = () => {
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [suburb, setSuburb] = useState(null);
+  const [city, setCity] = useState(null);
+  console.log("suburb-------->", suburb);
+  console.log("longitude-------->", longitude);
   const [formData, setFormData] = useState([]);
   const [productImg, setProductImg] = useState(null);
   const [error, setError] = useState("");
@@ -55,7 +61,6 @@ const PostForm = () => {
       setError("please select a valid image type");
     }
   };
-  console.log("formData>>>", formData);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFromError(validate(formData));
@@ -74,6 +79,11 @@ const PostForm = () => {
             userEmail: formData.email,
             userName: formData.userName,
             phoneNumber: formData.phone,
+            suburb: suburb,
+            longitude: longitude,
+            latitude: latitude,
+            city: city
+            
           })
             .then((res) => {
               toast.success("Post submitted");
@@ -100,6 +110,38 @@ const PostForm = () => {
 
   useEffect(() => {
     setFormData({ ...formData, productName: "Ajrak" });
+  }, []);
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+
+          // Call the Nominatim API
+          fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("data resp----->",data)
+              const suburb = data.address.suburb;
+              const city = data?.address?.city;
+              setCity(city)
+              console.log("suburbbbbbbb------------<><><><><>",suburb)
+              setSuburb(suburb);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
   }, []);
   return (
     <>
