@@ -174,11 +174,15 @@ const ItemsList = () => {
       />
     );
   });
+  console.log('items----------->',items)
   return (
     <>
       <section className="container mx-auto lg:px-6">
-        <div className="grid grid-cols-4 gap-x-6 gap-y-6">{list}</div>
-
+        {items !== null && suburb  ? (
+          <div className="grid grid-cols-4 gap-x-6 gap-y-6">{list}</div>
+        ) : (
+          <h2 className="text-2xl text-[#A95414]">No Products Nearby You!</h2>
+        )}
         {modalIsActive && <ItemsModal item={selectedItem} />}
       </section>
     </>

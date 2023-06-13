@@ -49,16 +49,8 @@ const ItemsModal = (props) => {
         <p className="text-[#4b5563] text-[18px]">{props.item.description}</p>
         <p className="text-[#a95414]">pkr:{props.item.price}</p>
         <p className="font-[600]">{props.item.userName}</p>
+        <p>{props.item.city}</p>
         <form className={styles["item-modal-form"]} onSubmit={submitHandler}>
-          {/* <SizePicker
-            labelFor="size"
-            labelText="Choose a size"
-            availableSize={props.item.availableSize}
-            ref={sizeRef}
-            wrongSize={wrongSize}
-            wrongSizeStyles={styles.wrong_size_info}
-            selectStyles={styles.size_picker__select}
-          /> */}
           <button className={styles["add-btn"]}>Add to cart</button>
           <button
             className={styles["close-modal-btn"]}

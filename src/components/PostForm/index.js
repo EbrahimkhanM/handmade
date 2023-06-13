@@ -125,8 +125,8 @@ const PostForm = () => {
             .then((response) => response.json())
             .then((data) => {
               console.log("data resp----->",data)
-              const suburb = data.address.suburb;
-              const city = data?.address?.city;
+              const suburb = data?.address?.suburb;
+              const city = data?.display_name;
               setCity(city)
               console.log("suburbbbbbbb------------<><><><><>",suburb)
               setSuburb(suburb);
