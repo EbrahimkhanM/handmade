@@ -8,9 +8,7 @@ import TopSeller from "../components/TopSeller";
 import Layout from "../components/Layout";
 import CatagoriesList from "../components/Items/CatagoriesList";
 import HomeHeroSlider from "../components/HomeHeroSlider";
-// import auth  from "firebase/auth";
-// import { Auth } from "firebase/auth";
-
+import LocationMap from "../components/LocationMap"
 export default function Home() {
 
   return (
@@ -25,10 +23,8 @@ export default function Home() {
           </p>
         </div>
         <CatagoriesList />
-        <TopSeller
-          title="Featured Artisans"
-          para="Start selling and become our Top Artisans"
-        />
+        <TopSeller title="Featured Artisans" para="Start selling and become our Top Artisans" />
+        <LocationMap />
         <HandMade />
         <aside>
           <Menu />
