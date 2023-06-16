@@ -44,7 +44,6 @@ function SamplePrevArrow(props) {
 
 const HandMade = (props) => {
   const data = useSelector((state) => state);
-
   const settings = {
     dots: false,
     infinite: true,

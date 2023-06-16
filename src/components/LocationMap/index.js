@@ -8,6 +8,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
+import { useSelector } from "react-redux";
 
 const LocationMap = (props) => {
   const [latitude, setLatitude] = useState(null);
@@ -83,19 +84,24 @@ const LocationMap = (props) => {
 
     fetchProducts();
   }, []);
+  const data = useSelector((state) => state);
+
   return (
     <>
-      <div className="container mx-auto mt-12 mb-20">
-        <h2>Products Nearby You {suburb}</h2>
-        {products.map((product) => (
-          <div key={product.id}>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <p>suburb: {product.suburb}</p>
-            <img src={product.img}></img>
-          </div>
-        ))}
+      <div className="max-w-6xl mx-auto my-11">
+        <div className="text-center">
+        <p>Handicrafts near to your  area!</p>
+        <button
+          onClick={() => {
+            data?.auth
+              ? (window.location.href = "/nearby")
+              : (window.location.href = "./log-in");
+          }}
+          className=" text-xl w-auto py-[10px]  md:px-8 px-6 focus:outline-none  text-white  mt-4 bg-[#A95414]  "
+        >
+          Nearby Crafts
+        </button>
+        </div>
       </div>
     </>
   );
