@@ -9,19 +9,18 @@ import "react-toastify/dist/ReactToastify.css";
 import CurrencyInput from "react-currency-input-field";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const PostForm = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [suburb, setSuburb] = useState(null);
-  const [city, setCity] = useState(null);
-  console.log("suburb-------->", suburb);
-  console.log("longitude-------->", longitude);
+  const [city, setCity] = useState('');
   const [formData, setFormData] = useState([]);
   const [productImg, setProductImg] = useState(null);
   const [error, setError] = useState("");
   const [formError, setFromError] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
+  const [userMail, setUserMail] = useState('sadas');
   const navigate = useNavigate();
   const validate = (values) => {
     const errors = {};
@@ -143,6 +142,24 @@ const PostForm = () => {
       console.log("Geolocation is not supported by this browser.");
     }
   }, []);
+useEffect(() => {
+  const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  console.log("fffffffffffffff--------->", user)
+  const uid = user;
+  console.log("JJJJJJJJJJJJJJJJJJJ__________00000000000000>",user)
+  const userRef = db.collection('users').doc(uid);
+  const useremail = user?.email;
+  setUserMail(useremail)
+
+
+
+});
+}, [])
+const [userData, setUserData] = useState(null);
+
+
+
   return (
     <>
       <ToastContainer />
@@ -179,7 +196,7 @@ const PostForm = () => {
                   <input
                     className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                     type="email"
-                    value={formData.email}
+                    value={userMail}
                     onChange={(e) => {
                       setFormData({ ...formData, email: e.target.value });
                     }}

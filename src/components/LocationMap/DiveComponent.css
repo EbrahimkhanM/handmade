@@ -1,0 +1,10 @@
+.dive-container {
+    background-image: url(/public/images/aboutbg.jpg); /* Update the URL here */
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }

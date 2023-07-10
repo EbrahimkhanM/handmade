@@ -91,7 +91,7 @@ const LogInForm = () => {
                     <div className="relative flex flex-col items-center justify-center">
                       <input
                         aria-label="enter Password"
-                        type="text"
+                        type="password"
                         value={formData.pass}
                         onChange={(e) => {
                           setFormData({ ...formData, pass: e.target.value });

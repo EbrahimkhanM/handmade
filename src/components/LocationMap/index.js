@@ -9,6 +9,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { useSelector } from "react-redux";
+import "./DiveComponent.css"; // Import the CSS file
+import { Route } from "react-router-dom";
 
 const LocationMap = (props) => {
   const [latitude, setLatitude] = useState(null);
@@ -88,19 +90,19 @@ const LocationMap = (props) => {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto my-11">
-        <div className="text-center">
-        <p>Handicrafts near to your  area!</p>
-        <button
-          onClick={() => {
-            data?.auth
-              ? (window.location.href = "/nearby")
-              : (window.location.href = "./log-in");
-          }}
-          className=" text-xl w-auto py-[10px]  md:px-8 px-6 focus:outline-none  text-white  mt-4 bg-[#A95414]  "
-        >
-          Nearby Crafts
-        </button>
+      <div className="max-w-full mx-auto my-11">
+        <div className="dive-container relative z-[-30]">
+          <div className="bg-slate-900 w-full h-full absolute bg-opacity-60 z-[-20]"></div>
+          <div className="text-center">
+            <p className="text-white text-2xl ">Handicrafts near to your area!</p>
+            <a href="/nearby">
+            <button
+              className=" text-xl w-auto py-[10px] cursor-pointer   md:px-8 px-6 focus:outline-none  text-white  mt-4 bg-[#A95414]  "
+            >
+              Nearby Crafts
+            </button>
+            </a>
+          </div>
         </div>
       </div>
     </>

@@ -78,7 +78,7 @@ const ItemsList = () => {
           )
             .then((response) => response.json())
             .then((data) => {
-              console.log("resss data", data);
+              console.log("resss data-----------", data);
               const city = data.address.suburb;
               console.log("City in city", city);
               setSuburb(city);
