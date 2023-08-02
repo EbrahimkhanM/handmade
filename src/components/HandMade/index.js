@@ -107,7 +107,7 @@ const HandMade = (props) => {
                     : (window.location.href = "./log-in");
                 }}
               >
-                Sale Product
+                Sell Product
               </button>
             </div>
           </div>

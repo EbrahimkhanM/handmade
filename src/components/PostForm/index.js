@@ -20,7 +20,7 @@ const PostForm = () => {
   const [error, setError] = useState("");
   const [formError, setFromError] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
-  const [userMail, setUserMail] = useState('sadas');
+  const [userMail, setUserMail] = useState('');
   const navigate = useNavigate();
   const validate = (values) => {
     const errors = {};
@@ -48,7 +48,7 @@ const PostForm = () => {
     return errors;
   };
   const types = ["image/png", "image/jpeg"];
-
+console.log("formdata--------------",formData);
   const handleImg = (e) => {
     let selectedFile = e.target.files[0];
     if (selectedFile && types.includes(selectedFile.type)) {
@@ -78,10 +78,10 @@ const PostForm = () => {
             userEmail: formData.email,
             userName: formData.userName,
             phoneNumber: formData.phone,
-            suburb: suburb,
-            longitude: longitude,
-            latitude: latitude,
-            city: city
+            // suburb: suburb,
+            // longitude: longitude,
+            // latitude: latitude,
+            // city: city
             
           })
             .then((res) => {
@@ -196,7 +196,7 @@ const [userData, setUserData] = useState(null);
                   <input
                     className="w-full bg-gray-300 text-sm font-medium leading-none focus:outline-none text-gray-900 p-3 border rounded focus:ring-[2px] focus:ring-[#a95414] border-gray-200"
                     type="email"
-                    value={userMail}
+                    value={formData.email}
                     onChange={(e) => {
                       setFormData({ ...formData, email: e.target.value });
                     }}
